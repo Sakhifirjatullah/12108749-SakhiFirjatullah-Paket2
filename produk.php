@@ -7,6 +7,7 @@
     <hr>
   <table class="table table-bordered">
     <tr>
+        <th>Gambar</th>
         <th>Nama Produk</th>
         <th>Harga</th>
         <th>Stok</th>
@@ -17,6 +18,7 @@
             while($data = mysqli_fetch_array($query)) {
                 ?>
                 <tr>
+                    <td><img src="img/<?php echo $row["foto"] ?>" width="50"></td>
                     <td><?php echo $data['nama_produk']; ?></td>
                     <td><?php echo $data['harga']; ?></td>
                     <td><?php echo $data['stok']; ?></td>

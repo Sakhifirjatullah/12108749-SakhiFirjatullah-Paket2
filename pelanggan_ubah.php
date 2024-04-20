@@ -21,7 +21,6 @@ if(isset($_POST['nama_pelanggan'])) {
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item">Ubah Pelanggan</li>
                         </ol>
-                        <a href="?page=pelanggan" class="btn btn-danger">Kembali</a>
                         <hr>
                         <form method="post">
                             <table class="table table-bordered">
@@ -47,7 +46,7 @@ if(isset($_POST['nama_pelanggan'])) {
                                     <td></td>
                                     <td>
                                     <a href="?page=pelanggan_tambah"><button type="submit" class="btn btn-primary">Simpan</button></a>
-                                    
+                                    <a href="?page=pelanggan" class="btn btn-danger">Kembali</a>
                                     </td>
                                 </tr>
                             </table>
