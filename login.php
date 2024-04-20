@@ -43,12 +43,14 @@ if(isset($_POST['username'])) {
                                     <div class="card-body">
                                         <form method="post">
                                             <div class="form-floating mb-3">
+                                            <label for="inputEmail">Username</label>
                                                 <input class="form-control" id="inputEmail" type="text" name="username" placeholder="Masukan username" />
-                                                <label for="inputEmail">Username</label>
+                                             
                                             </div>
                                             <div class="form-floating mb-3">
+                                            <label for="inputPassword">Password</label>
                                                 <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Masukan password" />
-                                                <label for="inputPassword">Password</label>
+                                                
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <button type="submit" class="btn btn-primary w-100">Login</button>
@@ -64,9 +66,7 @@ if(isset($_POST['username'])) {
                     </div>
                 </main>
             </div>
-            <div id="layoutAuthentication_footer">
-               
-            </div>
+         
         </div>
       
     <script src="plugins/common/common.min.js"></script>

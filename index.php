@@ -8,7 +8,7 @@ if(!isset($_SESSION['user'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -66,34 +66,35 @@ if(!isset($_SESSION['user'])) {
         
     </nav>
 
-    <div id="layoutSidenav">
+    <!-- <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         
-                        <!-- <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="index.php">
                             <div class="sb-nav-link-icon"></div>
                             Dashboard
-                        </a> -->
-                        <!-- <a class="nav-link" href="?page=pelanggan">
+                        </a> 
+                         <a class="nav-link" href="?page=pelanggan">
                             <div class="sb-nav-link-icon"></div>
                             Pelanggan
-                        </a> -->
-                        <!-- <a class="nav-link" href="?page=produk">
+                        </a> 
+                        <a class="nav-link" href="?page=produk">
                             <div class="sb-nav-link-icon"></div>
                             Produk
                         </a>
                         <a class="nav-link" href="?page=pembelian">
                             <div class="sb-nav-link-icon"></div>
                             Pembelian
-                        </a> -->
+                        </a>
                     </div>
-                </div>
+                </div> -->
                 
                
             </nav>
         </div>
+        <!-- buat memisahkan logika dan tampilan ke dalam file-file terpisah -->
         <div id="layoutSidenav_content">
             <main>
                <?php

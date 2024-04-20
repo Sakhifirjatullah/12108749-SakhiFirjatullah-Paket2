@@ -27,7 +27,7 @@
     $query = mysqli_query($koneksi, "UPDATE penjualan SET total_harga=$total WHERE id_penjualan=$id_penjualan"); //update date terakhir
 
     if($query) {
-        echo '<script>alert("Tambah Data Berhasil")</script>';
+        echo '<script>alert("Tambah Data Berhasil"); window.location.href="?page=pembelian";</script>';
     } else {
         echo '<script>alert("Tambah Data gagal")</script>';
     }

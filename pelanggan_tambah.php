@@ -6,12 +6,13 @@ if(isset($_POST['nama_pelanggan'])) {
 
     $query = mysqli_query($koneksi, "INSERT INTO pelanggan(nama_pelanggan,alamat,no_telepon) values('$nama', '$alamat', '$no_telepon')");
     if($query) {
-        echo '<script>alert("Tambah Data Berhasil")</script>';
+        echo '<script>alert("Tambah Data Berhasil"); window.location.href="?page=pelanggan";</script>';
     } else {
         echo '<script>alert("Tambah Data gagal")</script>';
     }
 }
 ?>
+
 
 <div class="container-fluid mt-3">
                     <ol class="breadcrumb mb-4">
