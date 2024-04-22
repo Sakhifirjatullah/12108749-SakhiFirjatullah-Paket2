@@ -17,6 +17,7 @@ if(!isset($_SESSION['user'])) {
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Pignose Calender -->
@@ -47,51 +48,21 @@ if(!isset($_SESSION['user'])) {
                     <div class="sb-nav-link-icon"></div>
                     Dashboard
                 </a> 
-                <a class="nav-link" href="?page=pelanggan">
+                <a class="nav-link" href="?page=pelanggan_admin">
                     <div class="sb-nav-link-icon"></div>
-                    Pelanggan
+                    User
                 </a>
                 <a class="nav-link" href="?page=produk">
                     <div class="sb-nav-link-icon"></div>
                     Produk
                 </a>
-                <a class="nav-link" href="?page=pembelian">
+                <a class="nav-link" href="?page=pembelian_admin">
                     <div class="sb-nav-link-icon"></div>
                     Pembelian
                 </a>
             </div>
         </form>
-        
-        
-        
     </nav>
-
-    <!-- <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        
-                        <a class="nav-link" href="index.php">
-                            <div class="sb-nav-link-icon"></div>
-                            Dashboard
-                        </a> 
-                         <a class="nav-link" href="?page=pelanggan">
-                            <div class="sb-nav-link-icon"></div>
-                            Pelanggan
-                        </a> 
-                        <a class="nav-link" href="?page=produk">
-                            <div class="sb-nav-link-icon"></div>
-                            Produk
-                        </a>
-                        <a class="nav-link" href="?page=pembelian">
-                            <div class="sb-nav-link-icon"></div>
-                            Pembelian
-                        </a>
-                    </div>
-                </div> -->
-                
-               
             </nav>
         </div>
         <!-- buat memisahkan logika dan tampilan ke dalam file-file terpisah -->

@@ -1,15 +1,22 @@
 <?php
+session_start();
 include "koneksi.php";
 if(isset($_POST['username'])) {
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = ($_POST['password']);
 
-    $cek = mysqli_query($koneksi, "SELECT*FROM user WHERE username='$username' AND password='$password'");
+    $cek = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password'");
 
     if(mysqli_num_rows($cek) > 0) {
         $data = mysqli_fetch_array($cek);
         $_SESSION['user'] = $data;
-        echo '<script>alert("Anda berhasil login"); location.href="index.php"</script>';
+        if($data['role'] == 'admin') {
+            echo '<script>alert("Anda berhasil login sebagai admin"); location.href="index.php"</script>';
+        } elseif($data['role'] == 'kasir') {
+            echo '<script>alert("Anda berhasil login sebagai kasir"); location.href="index_kasir.php"</script>';
+        } else {
+            echo '<script>alert("Anda tidak memiliki hak akses")</script>';
+        }
     } else {
         echo '<script>alert("Password/username anda salah")</script>';
     }

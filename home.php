@@ -1,39 +1,54 @@
 <div class="container-fluid mt-3">
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item">Dashboard</li>
-    </ol>
-
     <div class="row">
-        <div class="col-lg-3 col-sm-6">
-            <a href="?page=pelanggan" class="card gradient-1">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm">
                 <div class="card-body">
-                    <h3 class="card-title text-white"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT*FROM pelanggan")) ?> Pelanggan</h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mb-0">User</h5>
+                            <span class="text-muted"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM user")); ?> User</span>
+                        </div>
+                        <div class="icon bg-primary text-white rounded-circle">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
                 </div>
-            </a>
+               
+            </div>  
         </div>
 
-        <div class="col-lg-3 col-sm-6">
-            <a href="?page=produk" class="card gradient-2">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm">
                 <div class="card-body">
-                    <h3 class="card-title text-white"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT*FROM produk")) ?> Produk</h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mb-0">Produk</h5>
+                            <span class="text-muted"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM produk")); ?> Produk</span>
+                        </div>
+                        <div class="icon bg-success text-white rounded-circle">
+                            <i class="fas fa-box"></i>
+                        </div>
+                    </div>
                 </div>
-            </a>
+               
+            </div>
         </div>
 
-        <div class="col-lg-3 col-sm-6">
-            <a href="?page=pembelian" class="card gradient-3">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm">
                 <div class="card-body">
-                    <h3 class="card-title text-white"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT*FROM penjualan")) ?> Pembelian</h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mb-0">Pembelian</h5>
+                            <span class="text-muted"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM penjualan")); ?> Pembelian</span>
+                        </div>
+                        <div class="icon bg-info text-white rounded-circle">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
                 </div>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-sm-6">
-            <a href="#" class="card gradient-4">
-                <div class="card-body">
-                    <h3 class="card-title text-white"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT*FROM user")) ?> Total User</h3>
-                </div>
-            </a>
+               
+            </div>
         </div>
     </div>
 </div>

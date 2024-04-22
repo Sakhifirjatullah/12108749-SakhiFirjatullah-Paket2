@@ -1,53 +1,52 @@
 <?php
-if(isset($_POST['nama_pelanggan'])) {
-    $nama = $_POST['nama_pelanggan'];
-    $alamat = $_POST['alamat'];
-    $no_telepon = $_POST['no_telepon'];
+if(isset($_POST['submit'])) {
+    include "koneksi.php";
+    $nama = $_POST['nama'];
+    $username = $_POST['username'];
+    $password= $_POST['password'];
+    
+    $role = $_POST['role'];
 
-    $query = mysqli_query($koneksi, "INSERT INTO pelanggan(nama_pelanggan,alamat,no_telepon) values('$nama', '$alamat', '$no_telepon')");
+    $query = mysqli_query($koneksi, "INSERT INTO user(nama, username, password, role) VALUES('$nama', '$username', '$password', '$role')");
+
     if($query) {
-        echo '<script>alert("Tambah Data Berhasil"); window.location.href="?page=pelanggan";</script>';
+        echo '<script>alert("Tambah Data Berhasil"); window.location.href="?page=pelanggan_admin";</script>';
     } else {
-        echo '<script>alert("Tambah Data gagal")</script>';
+        echo '<script>alert("Tambah Data Gagal")</script>';
     }
 }
 ?>
 
-
 <div class="container-fluid mt-3">
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item">Tambah Pelanggan</li>
-                    </ol>
-                        
-                        <hr>
-                        <form method="post">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <td width="200">Nama Pelangan</td>
-                                    <td width="1">:</td>
-                                    <td><input class="form-control" type="text" name="nama_pelanggan"></td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td>:</td>
-                                    <td>
-                                        <textarea name="alamat" rows="5" class="form-control"></textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>No Telepon</td>
-                                    <td>:</td>
-                                    <td><input class="form-control" type="number" step="0" name="no_telepon"></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
-                                       <a href="?page=pelanggan" class="btn btn-danger">Kembali</a>
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </form>
-                    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tambah Pelanggan</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="nama">Nama </label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama " required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <textarea class="form-control" id="username" name="username" rows="3" placeholder="Username" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <textarea class="form-control" id="password" name="password" rows="3" placeholder="Password" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <input type="tel" class="form-control" id="role" name="role" placeholder="Role" required>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
+                        <a href="?page=pelanggan_admin" class="btn btn-danger">Kembali</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
