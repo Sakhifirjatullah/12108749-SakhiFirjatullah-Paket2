@@ -1,31 +1,44 @@
 <?php
 if(isset($_POST['id_pelanggan'])) {
+    // Menggunakan file koneksi.php untuk terhubung ke database
     include "koneksi.php";
     
+    // Mengambil nilai dari formulir
     $id_pelanggan = $_POST['id_pelanggan'];
     $produk = $_POST['produk'];
     $total = 0;
     $tanggal = date('Y/m/d');
 
+    // Memasukkan record baru ke tabel "penjualan"
     $query = mysqli_query($koneksi, "INSERT INTO penjualan(tanggal_penjualan,id_pelanggan) VALUES('$tanggal', '$id_pelanggan')");
 
+    // Mengambil ID penjualan terakhir yang dimasukkan ke database
     $idTerakhir = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM penjualan ORDER BY id_penjualan DESC"));
     $id_penjualan = $idTerakhir['id_penjualan'];
 
+    // Memproses setiap produk yang dibeli
     foreach($produk as $key=>$val) {
+        // Mengambil informasi produk dari database
         $pr = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk=$key"));
     
+        // Jika jumlah yang dibeli lebih dari 0, maka
         if($val > 0) {
+            // Menghitung subtotal dan total
             $sub = $val * $pr['harga'];
             $total += $sub;
+            
+            // Memasukkan detail penjualan ke dalam tabel "detail_penjualan"
             $query = mysqli_query($koneksi, "INSERT INTO detail_penjualan(id_penjualan,id_produk,jumlah_produk,subtotal) VALUES('$id_penjualan', '$key', '$val', '$sub')");
 
+            // Mengupdate stok produk
             $updateProduk = mysqli_query($koneksi, "UPDATE produk SET stok=stok-$val WHERE id_produk=$key");
         }
     }
 
+    // Mengupdate total harga penjualan ke tabel "penjualan"
     $query = mysqli_query($koneksi, "UPDATE penjualan SET total_harga=$total WHERE id_penjualan=$id_penjualan");
 
+    // Memberikan pemberitahuan sukses atau gagal
     if($query) {
         echo '<script>alert("Tambah Data Berhasil"); window.location.href="?page=pembelian";</script>';
     } else {
@@ -33,6 +46,7 @@ if(isset($_POST['id_pelanggan'])) {
     }
 }
 ?>
+
 
 <div class="container-fluid mt-3">
     <div class="row">

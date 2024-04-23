@@ -1,6 +1,9 @@
 <?php
 if(isset($_POST['submit'])) {
+    // Menggunakan file koneksi.php untuk terhubung ke database
     include "koneksi.php";
+    
+    // Mengambil nilai dari formulir
     $nama = $_POST['nama_produk'];
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
@@ -12,9 +15,10 @@ if(isset($_POST['submit'])) {
     
     move_uploaded_file($tmp, $path);
 
-    // Masukkan data ke database
+    // Memasukkan data ke database
     $query = mysqli_query($koneksi, "INSERT INTO produk(nama_produk, harga, stok, gambar) VALUES('$nama', '$harga', '$stok', '$gambar')");
 
+    // Memberikan pemberitahuan sukses atau gagal
     if($query) {
         echo '<script>alert("Tambah Data Berhasil"); window.location.href="?page=produk";</script>';
     } else {
@@ -22,6 +26,7 @@ if(isset($_POST['submit'])) {
     }
 }
 ?>
+
 
 <div class="container-fluid mt-3">
     <div class="row">
