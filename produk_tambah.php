@@ -5,8 +5,15 @@ if(isset($_POST['submit'])) {
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
 
+    // Upload gambar
+    $gambar = $_FILES['gambar']['name'];
+    $tmp = $_FILES['gambar']['tmp_name'];
+    $path = "images/".$gambar;
+    
+    move_uploaded_file($tmp, $path);
+
     // Masukkan data ke database
-    $query = mysqli_query($koneksi, "INSERT INTO produk(nama_produk, harga, stok) VALUES('$nama', '$harga', '$stok')");
+    $query = mysqli_query($koneksi, "INSERT INTO produk(nama_produk, harga, stok, gambar) VALUES('$nama', '$harga', '$stok', '$gambar')");
 
     if($query) {
         echo '<script>alert("Tambah Data Berhasil"); window.location.href="?page=produk";</script>';
@@ -24,7 +31,7 @@ if(isset($_POST['submit'])) {
                     <h5 class="card-title mb-0">Tambah Produk</h5>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="nama_produk">Nama Produk</label>
                             <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Nama Produk">
@@ -36,6 +43,10 @@ if(isset($_POST['submit'])) {
                         <div class="form-group">
                             <label for="stok">Stok</label>
                             <input type="number" class="form-control" id="stok" name="stok" placeholder="Stok">
+                        </div>
+                        <div class="form-group">
+                            <label for="gambar">Gambar</label>
+                            <input type="file" class="form-control-file" id="gambar" name="gambar" required>
                         </div>
                         <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
                         <a href="?page=produk" class="btn btn-danger">Kembali</a>

@@ -56,29 +56,36 @@ if(isset($_POST['id_pelanggan'])) {
                                 ?>
                             </select>
                         </div>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Nama Produk</th>
-                                    <th>Stok</th>
-                                    <th>Jumlah Beli</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    $pro = mysqli_query($koneksi, "SELECT * FROM produk");
-                                    while($produk = mysqli_fetch_array($pro)) {
-                                ?>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="search_produk" placeholder="Cari Produk">
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $produk['nama_produk']; ?></td>
-                                        <td><?php echo $produk['stok']; ?></td>
-                                        <td><input class="form-control" type="number" step="1" min="0" max="<?php echo $produk['stok']; ?>" name="produk[<?php echo $produk['id_produk']; ?>]" value="0"></td>
+                                        <th>Nama Produk</th>
+                                        <th>Stok</th>
+                                        <th>Gambar</th>
+                                        <th>Jumlah Beli</th>
                                     </tr>
-                                <?php
-                                    }
-                                ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody id="produk_table">
+                                    <?php
+                                        $pro = mysqli_query($koneksi, "SELECT * FROM produk");
+                                        while($produk = mysqli_fetch_array($pro)) {
+                                    ?>
+                                        <tr data-nama="<?php echo strtolower($produk['nama_produk']); ?>">
+                                            <td><?php echo $produk['nama_produk']; ?></td>
+                                            <td><?php echo $produk['stok']; ?></td>
+                                            <td><img src="images/<?php echo $produk['gambar']; ?>" width="100"></td>
+                                            <td><input class="form-control" type="number" step="1" min="0" max="<?php echo $produk['stok']; ?>" name="produk[<?php echo $produk['id_produk']; ?>]" value="0"></td>
+                                        </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="?page=pembelian" class="btn btn-danger">Kembali</a>
                     </form>
@@ -87,3 +94,15 @@ if(isset($_POST['id_pelanggan'])) {
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#search_produk').on('keyup', function(){
+            var searchText = $(this).val().toLowerCase();
+            $('#produk_table tr').filter(function(){
+                $(this).toggle($(this).data('nama').indexOf(searchText) > -1)
+            });
+        });
+    });
+</script>
