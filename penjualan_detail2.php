@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-right">
-                    <a href="?page=pembelian" class="btn btn-danger">Kembali</a>
+                    <a href="?page=pembelian_admin" class="btn btn-danger">Kembali</a>
                     <a href="print.php?id=<?php echo $id; ?>" target="_blank" class="btn btn-primary">Print PDF</a>
                 </div>
             </div>

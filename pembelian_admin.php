@@ -27,8 +27,7 @@
                                     <td><?php echo $data['nama_pelanggan']; ?></td>
                                     <td><?php echo $data['total_harga']; ?></td>
                                     <td>
-                                        <a href="?page=penjualan_detail&&id=<?php echo $data['id_penjualan']; ?>" class="btn btn-sm btn-secondary">Detail</a>
-                                       
+                                        <a href="?page=penjualan_detail2&&id=<?php echo $data['id_penjualan']; ?>" class="btn btn-sm btn-secondary">Detail</a> 
                                 </tr>
                                 <?php
                                 }

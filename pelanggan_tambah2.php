@@ -33,8 +33,8 @@ if(isset($_POST['submit'])) {
                             <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="alamat" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="no_telepon">Role</label>
-                            <input type="tel" class="form-control" id="no_telepon" name="no_telepon" placeholder="No Telepon" required>
+                            <label for="no_telepon">No Telepon</label>
+                            <input type="number" class="form-control" id="no_telepon" name="no_telepon" placeholder="No Telepon" required>
                         </div>
                         <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
                         <a href="?page=pelanggan" class="btn btn-danger">Kembali</a>

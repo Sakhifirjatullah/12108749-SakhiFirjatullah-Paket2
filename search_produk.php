@@ -24,10 +24,5 @@ if(mysqli_num_rows($result) > 0)
             </tr>
         ';
     }
-    echo $output;
-}
-else
-{
-    echo '<tr><td colspan="3">Produk tidak ditemukan</td></tr>';
 }
 ?>
